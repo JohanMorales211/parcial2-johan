@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Editar cliente</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+      /* Estilo para la tabla */
+      table {
+          width: 100%;
+          border-collapse: collapse;
+          border-radius: 5px;
+          overflow: hidden;
+      }
+
+      th {
+          background-color: #343a40;
+          color: #fff;
+          text-align: left;
+          font-weight: normal;
+          padding: 12px 15px;
+          border-top: 1px solid #fff;
+          border-bottom: 1px solid #fff;
+      }
+
+      td {
+          border-bottom: 1px solid #f2f2f2;
+          padding: 8px 15px;
+          color: #5f5f5f;
+      }
+
+      /* Estilo para el contenedor de la tabla */
+      .container {
+          background-color: rgba(255, 255, 255, 0.9);
+          padding: 20px;
+          border-radius: 10px;
+          margin-top: 50px;
+          box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+      }
+      </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Editar cliente</h1>
+        <form th:action="@{/clientes/{id}(id=${cliente.id})}" th:object="${cliente}" method="POST">
+            <div class="form-group">
+                <label>Nombre : </label>
+                <input type="text" name="nombre" th:field="*{nombre}" class="form-control" placeholder="Digite el nombre : " required>
+              </div>
+  
+              <div class="form-group">
+                <label>Apellido1 : </label>
+                <input type="text" name="apellido1" th:field="*{apellido1}" class="form-control" placeholder="Digite el primer apellido : " required>
+              </div>
+              <div class="form-group">
+                <label>Apellido2 : </label>
+                <input type="text" name="apellido2" th:field="*{apellido2}" class="form-control" placeholder="Digite el segundo apellido : " required>
+              </div>
+  
+              <div class="form-group">
+                <label>Ciudad : </label>
+                <input type="text" name="ciudad" th:field="*{ciudad}" class="form-control" placeholder="Digite la ciudad : " required>
+              </div>
+              <div class="form-group">
+                <label>Categoria : </label>
+                <input type="text" name="categoria" th:field="*{categoria}" class="form-control" placeholder="Digite la categoria : " required>
+              </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a class="btn btn-secondary" th:href="@{/clientes}">Volver</a>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
